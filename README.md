@@ -32,7 +32,7 @@ Prima di installare USB Security è necessario controllare che i seguenti pacche
 
 - udev (udevadm)
 
-Scaricare una copia del repository. Eseguire il file *install.sh* con `./install.sh` nella cartella locale o *Esegui come programma* dal menù contestuale.
+[Scaricare l'ultima release da GitHub](https://github.com/simdlldev/USB_Security/releases). Eseguire il file *install.sh* con `./install.sh` nella cartella locale o *Esegui come programma* dal menù contestuale.
 
 ---
 
