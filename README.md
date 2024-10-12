@@ -22,7 +22,7 @@ A causa del modo in cui funziona il protocollo USB, tutti i dispositivi connessi
 
 ## Installazione
 
-Prima di installare USB SEcurity è necessario controllare che i seguenti pacchetti siano installati e funzuinanti:
+Prima di installare USB Security è necessario controllare che i seguenti pacchetti siano installati e funzionanti:
 
 - zenity
 
@@ -89,7 +89,7 @@ Tutto questo viene fatto in modo invisibile all'utente che vede solo apparire il
 
 - Per il livello 2: inserire nella whitelist solo i dispositivi autorizzati e selezionati dall'utente. + Possibilità di visualizzare e gestire i dispositivi autorizzati
 
-(1) In alcune circonstanze non tutte le informaziondi del dispositivo collegato sono visualizzate.
+(1) In alcune circostanze non tutte le informazioni del dispositivo collegato sono visualizzate.
 
 ---
 
