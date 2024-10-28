@@ -54,17 +54,16 @@ if [[ $settings == '2' ]] ; then
 	if [[ $currDev =~ "$devProd|$devMan|$devType|$devVendID:$devProdID" ]] ; then
 		echo "$devPath" > /home/$homeDir/.cache/usb/file/do
 	else
-		zenity --question --title="Vuoi autorizzare il dispositivo USB?" --text="<span font='16'>Dispositivo: <b>$devProd</b>\nProduttore: <b>$devMan</b>\nTipo di dispositivo: <b>$devType</b>\nDettagli: <b>$devDetails</b>\nVendor ID: $devVendID\nProduct ID: $devProdID</span>" --default-cancel --icon="dialog-question-symbolic" --ellipsize --width=$zenWidth
+		zenity --question --title="Do you want to authorize the USB device??" --text="<span font='16'>Device: <b>$devProd</b>\nManufacturer: <b>$devMan</b>\nDevice type: <b>$devType</b>\nDetails: <b>$devDetails</b>\nVendor ID: $devVendID\nProduct ID: $devProdID</span>" --default-cancel --icon="dialog-question-symbolic" --ellipsize --width=$zenWidth
 		cDev=$?
 		allowedDev
 	fi
 elif [[ $settings == '3' ]] ; then
-	zenity --question --title="Vuoi autorizzare il dispositivo USB?" --text="<span font='16'>Dispositivo: <b>$devProd</b>\nProduttore: <b>$devMan</b>\nTipo di dispositivo: <b>$devType</b>\nDettagli: <b>$devDetails</b>\nVendor ID: $devVendID\nProduct ID: $devProdID</span>" --default-cancel --icon="dialog-question-symbolic" --ellipsize --width=$zenWidth
+	zenity --question --title="Do you want to authorize the USB device??" --text="<span font='16'>Device: <b>$devProd</b>\nManufacturer: <b>$devMan</b>\nDevice type: <b>$devType</b>\nDetails: <b>$devDetails</b>\nVendor ID: $devVendID\nProduct ID: $devProdID</span>" --default-cancel --icon="dialog-question-symbolic" --ellipsize --width=$zenWidth
 	cDev=$?
 	allowedDev
 elif [[ $settings == '4' ]] ; then
-	zenity --question --title="Vuoi autorizzare il dispositivo USB?" --text="<span font='16'>Dispositivo: <b>$devProd</b>\nProduttore: <b>$devMan</b>\nTipo di dispositivo: <b>$devType</b>\nDettagli: <b>$devDetails</b>\nVendor ID: $devVendID\nProduct ID: $devProdID</span>" --default-cancel --icon="dialog-question-symbolic" --ellipsize --width=$zenWidth
+	zenity --question --title="Do you want to authorize the USB device??" --text="<span font='16'>Device: <b>$devProd</b>\nManufacturer: <b>$devMan</b>\nDevice type: <b>$devType</b>\nDetails: <b>$devDetails</b>\nVendor ID: $devVendID\nProduct ID: $devProdID</span>" --default-cancel --icon="dialog-question-symbolic" --ellipsize --width=$zenWidth
 	cDev=$?
 	allowedDev
 fi
-
