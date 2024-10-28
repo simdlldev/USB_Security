@@ -46,6 +46,11 @@ cp "$currentDir/.install/run.sh" "/home/$userName/.local/share/usb/scripts/run.s
 cp "$currentDir/.install/usb.sh" "/home/$userName/.local/share/usb/scripts/usb.sh"
 cp "$currentDir/.install/manager.sh" "/home/$userName/.local/share/usb/scripts/manager.sh"
 cp "$currentDir/.install/usb-security.png" "/home/$userName/.icons/usb-security.png"
+
+zenity --info --title="Installazione USB Security" --text="Rimuovere tutti i dispositivi USB collegati, poi premere OK"
+
+echo "$(ls /sys/bus/usb/devices/ | tr '\n' '#')" > "/home/$userName/.cache/usb/file/sys-dev"
+
 pkexec "$currentDir/.root-installer.sh" $currentDir $userName
 
 if [[ -f "$currentDir/fail" ]] ; then
@@ -61,4 +66,3 @@ if [[ -f "$currentDir/done" ]] ; then
 else
 	zenity --info --title="Installazione USB Security" --text="Si è verificato un errore"
 fi
-
