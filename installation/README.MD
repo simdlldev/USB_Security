@@ -1,1 +1,1 @@
-# Script per installare e disistallare USB Security
+# Scripts to install and uninstall USB Security
