@@ -1,10 +1,10 @@
 # USB Security
 [ITALIAN] Rende le porte USB del tuo PC Linux sicure
 
-English version coming soon
+English version avaidable now: [click here!](https://github.com/simdlldev/USB_Security/tree/main-english)
 
 ---
-<Version: 1.0>
+<Version: 1.5>
 
 ---
 
@@ -17,6 +17,40 @@ USB Security è un set di script e altri componenti che si occupano di disabilit
 ##### Perché dovrei volerlo sul mio PC?
 
 A causa del modo in cui funziona il protocollo USB, tutti i dispositivi connessi sono "trusted" per impostazione predefinita. Ciò significa che se si collega un dispositivo che finge di essere una tastiera, può iniziare a digitare qualsiasi cosa molto rapidamente. Questo può quindi installare malware, spyware, ecc. USB Security vuole provare a risolvere questo problema.
+
+---
+
+### Sviluppo
+
+**Cosa è già stato implementato:**
+
+- Pop-up con informazioni dettagliate sul dispositivo collegato
+
+- Installazione e configurazione di base con interfaccia grafica
+
+- Flessibilità per adattarsi a dispositivi diversi (1)
+
+- Possibilità di scegliere differenti livelli di sicurezza
+
+**NOVITÀ**
+
+- Blocco dei dispositivi collegati prima dell'avvio
+
+**In fase di sviluppo:**
+
+- Per il livello 2: inserire nella whitelist solo i dispositivi autorizzati e selezionati dall'utente. + Possibilità di visualizzare e gestire i dispositivi autorizzati
+
+- Miglioramenti per la sicurezza
+
+**In programma:**
+
+- Migliore personalizzazione dei livelli di sicurezza
+
+- Nuove funzioni
+
+- Supporto multi-lingua
+
+(1) In alcune circostanze può capitare che non tutte le informazioni del dispositivo collegato sono visualizzate.
 
 ---
 
@@ -64,32 +98,6 @@ Tutte le porte USB vengono automaticamente disabilitate all'avvio.
 Quando si collega un dispositivo USB, una regola udev esegue uno script bash che chiede all'utente, con un pop-up zenity, se desidera autorizzare il dispositivo collegato. Se l'utente approva la richiesta, lo script comunica ad un altro script, eseguito con i privilegi di root, di autorizzare il dispositivo.
 
 Tutto questo viene fatto in modo invisibile all'utente che vede solo apparire il pop-up di autorizzazione.
-
----
-
-### Sviluppo
-
-**Cosa è già stato implementato:**
-
-- Pop-up con informazioni dettagliate sul dispositivo collegato
-
-- Installazione e configurazione di base con interfaccia grafica
-
-- Flessibilità per adattarsi a dispositivi diversi (1)
-
-- Possibilità di scegliere differenti livelli di sicurezza
-
-**In fase di sviluppo:**
-
-- Blocco dei dispositivi collegati prima dell'avvio
-
-**In programma:**
-
-- Migliore personalizzazione dei livelli di sicurezza
-
-- Per il livello 2: inserire nella whitelist solo i dispositivi autorizzati e selezionati dall'utente. + Possibilità di visualizzare e gestire i dispositivi autorizzati
-
-(1) In alcune circostanze non tutte le informazioni del dispositivo collegato sono visualizzate.
 
 ---
 
