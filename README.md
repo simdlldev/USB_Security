@@ -34,7 +34,7 @@ Before installing USB Security you need to make sure that the following packages
 
 - udev (udevadm)
 
-[Download the latest release from GitHub](https://github.com/simdlldev/USB_Security/releases). Run the *install.sh* file with `./install.sh` in the local folder or *Run as program* from the context menu.
+[Download the latest english release from GitHub](https://github.com/simdlldev/USB_Security/releases/tag/v1.5_en). Run the *install.sh* file with `./install.sh` in the local folder or *Run as program* from the context menu.
 
 ---
 
