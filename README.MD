@@ -1,62 +1,71 @@
 # USB Security
-[ITALIAN] Rende le porte USB del tuo PC Linux sicure
 
-English version avaidable now: [click here!](https://github.com/simdlldev/USB_Security/tree/main-english)
-
----
-<Version: 1.5>
+### Secures USB Ports on Your Linux PC
 
 ---
 
-### Panoramica
-
-USB Security è un set di script e altri componenti che si occupano di disabilitare le porte USB sul computer per impostazione predefinita e di chiedere all'utente se desidera autorizzare un dispositivo quando viene connesso.
+<Version: 2.0 Beta>
 
 ---
 
-##### Perché dovrei volerlo sul mio PC?
+### Overview
 
-A causa del modo in cui funziona il protocollo USB, tutti i dispositivi connessi sono "trusted" per impostazione predefinita. Ciò significa che se si collega un dispositivo che finge di essere una tastiera, può iniziare a digitare qualsiasi cosa molto rapidamente. Questo può quindi installare malware, spyware, ecc. USB Security vuole provare a risolvere questo problema.
-
----
-
-### Sviluppo
-
-**Cosa è già stato implementato:**
-
-- Pop-up con informazioni dettagliate sul dispositivo collegato
-
-- Installazione e configurazione di base con interfaccia grafica
-
-- Flessibilità per adattarsi a dispositivi diversi (1)
-
-- Possibilità di scegliere differenti livelli di sicurezza
-
-**NOVITÀ**
-
-- Blocco dei dispositivi collegati prima dell'avvio
-
-**In fase di sviluppo:**
-
-- Per il livello 2: inserire nella whitelist solo i dispositivi autorizzati e selezionati dall'utente. + Possibilità di visualizzare e gestire i dispositivi autorizzati
-
-- Miglioramenti per la sicurezza
-
-**In programma:**
-
-- Migliore personalizzazione dei livelli di sicurezza
-
-- Nuove funzioni
-
-- Supporto multi-lingua
-
-(1) In alcune circostanze può capitare che non tutte le informazioni del dispositivo collegato sono visualizzate.
+USB Security is a collection of scripts and other components designed to disable USB ports by default on the system and prompt the user for authorization whenever a device is connected.
 
 ---
 
-## Installazione
+##### Why Should I Want This on My PC?
 
-Prima di installare USB Security è necessario controllare che i seguenti pacchetti siano installati e funzionanti:
+Due to the way the USB protocol works, all connected devices are "trusted" by default. This means that if a device masquerades as a keyboard, it can start typing commands rapidly. This could lead to the installation of malware, spyware, etc. USB Security aims to mitigate this issue.
+
+---
+
+### Development
+
+**Implemented Features:**
+
+- Pop-up with detailed information about the connected device
+
+- Basic installation and configuration with graphical interface
+
+- Flexibility to accommodate different devices (1)
+
+- Option to select different security levels
+
+**New Features:**
+
+- Block connected devices before boot
+- Important files are now encrypted
+- Multi-language support
+- Level 2: Add only user-authorized devices to the whitelist and provide the ability to view and manage authorized devices. [BETA]
+
+**In Development:**
+
+- Security enhancements (integrity validation)
+
+- Fix for simultaneously connected devices
+
+**Planned:**
+
+- Enhanced security level customization
+
+- New features
+
+**Known Issues:**
+
+- Simultaneously connected devices may not be detected, requiring a disconnection and reconnection to be detected
+
+- Issues may arise when creating bootable media; set the security level to 1 to avoid issues
+
+##### USB Security has been tested only on Gnome 46 and 47.
+
+(1) Under certain circumstances, not all information about the connected device may be displayed.
+
+---
+
+## Installation
+
+Before installing USB Security, ensure that the following packages are installed and functioning:
 
 - zenity
 
@@ -66,63 +75,59 @@ Prima di installare USB Security è necessario controllare che i seguenti pacche
 
 - udev (udevadm)
 
-[Scaricare l'ultima release da GitHub](https://github.com/simdlldev/USB_Security/releases). Eseguire il file *install.sh* con `./install.sh` nella cartella locale o *Esegui come programma* dal menù contestuale.
+[Download the latest release from GitHub](https://github.com/simdlldev/USB_Security/releases). Run the *install.sh* file with `./install.sh` in the local folder or select *Run as Program* from the context menu.
 
 ---
 
-## Utilizzo
+## Usage
 
-**Dopo l'installazione le porte USB vengono disabilitate automaticamente.** 
+**By default, USB ports are automatically disabled after installation.**
 
-**Per impostazione predefinita la protezione delle porte USB è impostata sul livello 3**
+**The default USB protection level is set to level 3.**
 
-Una volta installato USB Security è necessario disconnettersi ed effettuare nuovamente il login affinché venga caricato correttamente.  Se dopo aver effettuato l'accesso non viene visualizzato alcun pop-up provare a riavviare il sistema. Per controllare se i vari moduli sono caricati correttamente cercare tra i processi in esecuzione *root-op.sh* e *user-run.sh*. Devono essere presenti entrambi i processi, se no USB Security non può funzionare.
+After installation, you must log out and log back in for the settings to be applied correctly. If no pop-up appears after logging in, try restarting the system. To check if the modules have been loaded correctly, look for *root-op.sh* and *user-run.sh* among the running processes. Both processes should be present; if not, USB Security will not function.
 
-Attraverso l'icona "<u>USB Security</u>" presente nell'App Drawer è possibile cambiare il livello di sicurezza di USB Security. È possibile scegliere tra:
+Using the "USB Security" icon in the App Drawer, you can change the security level. The following options are available:
 
-1. **Protezione disattivata**: questa opzione abilita tutti i dispositivi USB che vengono collegati. Di default questa opzione ritorna sul livello 3 dopo 10 minuti (<u>livello 1</u>), ma è possibile scegliere se renderla permanente (fino ad una nuova modifica delle impostazioni, <u>livello 0</u>).
+1. **Protection Disabled**: This option enables all connected USB devices. By default, this returns to level 3 after 10 minutes (level 1), but you can choose to make it permanent (until the settings are modified again, level 0).
 
-2. **I dispositivi precedentemente autorizzati non richiedono una nuova autorizzazione**: quando un dispositivo viene collegato e viene autorizzato vengono salvate alcune informazioni. Se lo stesso dispositivo viene ricollegato e le informazioni coincidono viene abilitato senza chiedere conferma all'utente. Solo i nuovi dispositivi richiedono l'autorizzazione. (<u>livello 2</u>) *NOTA: i dispositivi autorizzati vengono aggiunti alla whitelist sono quando il livello selezionato è il <u>2</u>.*
+2. **Previously Authorized Devices Don't Require Reauthorization**: When a device is connected and authorized, some information is saved. If the same device is reconnected and the information matches, it is enabled without requiring user confirmation. Only new devices require authorization. (level 2) *Note: Authorized devices are added to the whitelist only when level 2 is selected.*
 
-3. **Ogni volta che un dispositivo viene connesso viene richiesta l'autorizzazione**: questa è l'opzione di default. Una formattazione o modifiche a basso livello su dispositivi di archiviazione USB possono essere considerate come ri-collegamento, quindi sono da re-autorizzare. (<u>livello 3</u>) *NOTA: per "flashare" delle immagini disco è consigliato impostare il livello 1 per evitare problemi dovuti alla formattazione delle unità*
+3. **Every Time a Device is Connected, Authorization is Requested**: This is the default option. Formatting or low-level modifications on USB storage devices may be treated as a reconnection, so they need to be re-authorized. (level 3) *Note: For flashing disk images, it is recommended to set the level to 1 to avoid issues due to formatting of the drives.*
 
-4. **Ogni volta che un dispositivo viene connesso viene richiesta l'autorizzazione con password**: questa opzione garantisce la massima sicurezza. Ha gli stessi criteri del livello 3, ma richiede la password di root per completare l'autorizzazione. (<u>livello 4</u>) *NOTA: leggere la sezione "Importante nota di sicurezza" prima di utilizzare questa opzione*
-
----
-
-### Come funziona?
-
-**Spiegazione generale** *(se vuoi conoscere i dettagli consulta la sezione dedicata)*.
-
-Tutte le porte USB vengono automaticamente disabilitate all'avvio.
-Quando si collega un dispositivo USB, una regola udev esegue uno script bash che chiede all'utente, con un pop-up zenity, se desidera autorizzare il dispositivo collegato. Se l'utente approva la richiesta, lo script comunica ad un altro script, eseguito con i privilegi di root, di autorizzare il dispositivo.
-
-Tutto questo viene fatto in modo invisibile all'utente che vede solo apparire il pop-up di autorizzazione.
+4. **Every Time a Device is Connected, Authorization is Requested with Password**: This option offers maximum security. It works the same as level 3, but requires the root password to complete the authorization. (level 4) *Note: Please read the "Important Security Note" before using this option.*
 
 ---
 
-### Importante nota di sicurezza
+### How It Works?
 
-USB Security non fornisce alcuna garanzia in merito all'efficacia e al blocco dei dispositivi USB. Eventuali richieste di autenticazione con password dell'utente servono solo a verificare l'identità dell'utente tramite script, ma non sono richieste effettive di esecuzione di comandi. Inoltre, USB Security salva i file utilizzati per gestire il processo di autorizzazione nella home dell'utente, quindi potenzialmente modificabili da programmi terzi o dall'utente.
+**General Explanation** *(for more details, refer to the dedicated section)*.
 
-#### Al momento i dispositivi USB connessi prima dell'avvio del sistema non vengono disabilitati, poiché connessi prima del caricamento di USB Security. È in fase di sviluppo una correzione per questo problema
+All USB ports are automatically disabled at boot.
+When a USB device is connected, a udev rule triggers a bash script that prompts the user, via a zenity pop-up, to authorize the connected device. If the user approves, the script communicates with another script running with root privileges to authorize the device.
+
+This entire process happens transparently to the user, who only sees the authorization pop-up.
+
+---
+
+### Important Security Note
+
+USB Security makes no guarantees regarding the effectiveness or security of blocking USB devices. Any user password authentication requests are only used to verify the user's identity via scripts and are not actual requests to execute commands. Additionally, USB Security saves the files used to manage the authorization process in the user's home directory, so they can potentially be modified by third-party applications or the user.
+
+~~Currently, USB devices connected before the system boots are not disabled, as they are connected before USB Security is loaded. A fix for this issue is under development.~~ {fixed}
 
 ---
 
-### Come funziona? Dettagli
+### How It Works? Detailed Explanation
 
-`run.sh`: Componente eseguito dalla regola udev. Avvia il processo ri-autorizzazione creando una richiesta per `user-run.sh`.
+`run.sh`: Component executed by the udev rule. Initiates the re-authorization process by creating a request for `user-run.sh`.
 
-`root-op.sh`: Componente eseguita con privilegi root all'avvio tramite il servizio systemd *usb-security.service*. All'avvio si occupa di disabilitare le porte USB. Quando `usb.sh` crea una richiesta di sblocco viene eseguita da `root-op.sh`.
+`root-op.sh`: Component executed with root privileges at boot via the systemd service *usb-security.service*. It disables USB ports at boot. When `usb.sh` creates an unlock request, it is processed by `root-op.sh`.
 
-`user-run.sh`: Componente eseguita in user space, avviato tramite un file .desktop in autorun. Si occupa di controllare se ci sono nuove richieste di autorizzazione, in caso affermativo richiama `ush.sh` , indicando il nome (*/sys/bus/usb/devices/* **DEVICE**) del dispositivo collegato.
+`user-run.sh`: Component executed in user space, launched via a .desktop file in autorun. It checks for new authorization requests and, if any, invokes `ush.sh`, providing the name (*/sys/bus/usb/devices/* **DEVICE**) of the connected device.
 
-`usb.sh`: Componente in user space, viene richiamato da `user-run.sh`. Si occupa di visualizzare il pop-up per richiedere l'autorizzazione dell'utente. In caso di risposta affermativa crea una richiesta di sblocco per `root-op`.
+`usb.sh`: Component in user space, invoked by `user-run.sh`. It displays the pop-up to request user authorization. If approved, it creates an unlock request for `root-op`.
 
-`manager.sh`: Componente per modificare il livello di sicurezza di USB Security. È possibile eseguirlo con l'apposita icona nell'App Drawer, chiamato "<u>USB Security</u>"
+`manager.sh`: Component for changing the security level of USB Security. It can be run using the "USB Security" icon in the App Drawer.
 
-
-
-Per maggiori dettagli sul funzionamento e sugli script secondari è possibile consultare il codice sorgente
-
----
+For more details on how the system works and the secondary scripts, please refer to the source code.
